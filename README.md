@@ -1,44 +1,44 @@
-Hardware setup on the Raspberry Pi (3):
+# GlucoLed
+Glucose monitoring system with RGB LED indicators.
 
-Connect: RGB led common anode connected to the Rapberry Pi +3.3v
+## Description
 
-RGB Led red terminal connected to gpio1
+This module interfaces with LibreLink Up to fetch glucose data and displays different colors on an RGB LED based on glucose levels.
 
-RGB Led Green terminal connected to gpio2
+## Getting Started
 
-RGB Led Blue terminal connected to gpio3
+### Hardware setup on the Raspberry Pi (3):
+* Connect: RGB led common anode connected to the Rapberry Pi +3.3v
+* RGB Led red terminal connected to gpio1
+* RGB Led Green terminal connected to gpio2
+* RGB Led Blue terminal connected to gpio3
 
-python3 -m venv glucoLed
+### Dependencies
+* create a virtual environment: python3 -m venv glucoLed
 
-./glucoLed/bin/pip install libre-linkup-py
+Within the virtual environment: 
+* pip install libre-linkup-py
+* pip install Pydantic
+* pip install pytz
+* pip install RPi.GPIO
 
-./glucoLed/bin/pip install Pydantic
+### Installing
 
-./glucoLed/pip install pytz
-
-./glucoLed/pip install RPi.GPIO
-
-
-Create ./glucoLed/.env
-
+* Create a ./glucoLed/.env file with:
 LIBRE_LINK_UP_USERNAME=<Libre Linkup username>
-
 LIBRE_LINK_UP_PASSWORD=<Libre Linkup password>
-
 LIBRE_LINK_UP_URL=https://api.libreview.io
-
 LIBRE_LINK_UP_VERSION=4.7.0  # Optional
 
+### Executing program
 
-In glucoLed/lib/python3.11/site-packages/pytz/__init__.py
-
-Replace: zone = _case_insensitive_zone_lookup(_unmunge_zone(zone))
-
-With: zone = "US/Pacific"
-
-(line 181)
-
-
-Run app:
-
+```
 ./glucoLed/bin/python ./glucoLed/glucoLed.py
+```
+
+### Tip (hack)
+
+* You may have to do the following:
+* In glucoLed/lib/python3.11/site-packages/pytz/__init__.py
+* Replace: zone = _case_insensitive_zone_lookup(_unmunge_zone(zone))
+* With: zone = "US/Pacific"
