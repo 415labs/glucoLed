@@ -25,10 +25,12 @@ Within the virtual environment:
 ### Installing
 
 * Create a ./glucoLed/.env file with:
+```
 LIBRE_LINK_UP_USERNAME=<Libre Linkup username>
 LIBRE_LINK_UP_PASSWORD=<Libre Linkup password>
 LIBRE_LINK_UP_URL=https://api.libreview.io
 LIBRE_LINK_UP_VERSION=4.7.0  # Optional
+```
 
 ### Executing program
 
